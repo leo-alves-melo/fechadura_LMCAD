@@ -8,7 +8,7 @@ def signal_handler(signal, frame):
 		print('You pressed Ctrl+C!')
 		curses.nocbreak()
 		sys.exit(0)
-#signal.signal(signal.SIGINT, signal_handler)
+signal.signal(signal.SIGINT, signal_handler)
 
 
 def criptografate(passaword):
@@ -25,13 +25,14 @@ def autenticate(password):
 	if password == "1234":
 		return True
 
-#window = curses.initscr()
+window = curses.initscr()
 #curses.cbreak()
 
 while True:
 
-	password = raw_input()
+	password = str(window.getch())
 
+	print password
 
 	
 	
